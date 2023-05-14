@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
+use App\Models\RolesModel; 
+
 class RolesController extends ResourceController
 {
     /**
@@ -13,7 +15,11 @@ class RolesController extends ResourceController
      */
     public function index()
     {
-        //
+        $connectionDbRoles = new RolesModel();  
+        $listroles = $connectionDbRoles->findAll(); 
+
+        print_r($listroles); 
+        return view('listroles', $listroles);  
     }
 
     /**
